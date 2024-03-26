@@ -2,11 +2,10 @@
 //  Loan.swift
 //  Loan Calculator
 //
-//  Created by Louis Gardin on 23/03/2024.
+//  Created by Louis Gardin on 26/03/2024.
 //
 
 import Foundation
-
 class Loan {
     public enum Periode: String, CaseIterable {
         case mois, trimestre, semestre, annee
@@ -30,33 +29,4 @@ class Loan {
     var amount: Float = 0
     var rate: Float = 0
     var time: Int = 0
-    
-    func annuity() -> Float {
-        return self.amount * (self.rate / (1 - pow(1 + self.rate, Float(self.time * -1))))
-    }
-    
-    func getStartingCapital(periode: Int) -> Float {
-        var result = self.amount
-//            for _ in 0..<periode {
-//                print(result)
-//                result = result - annuity() - result * self.rate
-//            }
-        if periode > 0 {
-            result = getEndingCapital(periode: periode - 1)
-        }
-        return result
-    }
-    
-    func getInterest(periode: Int) -> Float {
-        return getStartingCapital(periode: periode) * self.rate
-    }
-    
-    func getAmortissement(periode: Int) -> Float {
-        return annuity() - getInterest(periode: periode)
-    }
-    
-    func getEndingCapital(periode: Int) -> Float {
-        let calcul = getStartingCapital(periode: periode) - getAmortissement(periode: periode)
-        return  calcul < 0 ? calcul * -1 : calcul
-    }
 }
