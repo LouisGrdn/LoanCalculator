@@ -13,11 +13,11 @@ struct AmortisRow: View {
     var body: some View {
         GridRow {
             Text(String(index + 1))
-            Text(String((loan.getStartingCapital(periode: index) * 100).rounded() / 100))
-            Text(String((loan.getInterest(periode: index) * 100).rounded() / 100))
-            Text(String((loan.getAmortissement() * 100).rounded() / 100))
-            Text(String((loan.getAnnuity(periode: index) * 100).rounded() / 100))
-            Text(String((loan.getEndingCapital(periode: index) * 100).rounded() / 100))
+            Text(String((loan.start[index] * 100).rounded() / 100))
+            Text(String((loan.interests[index] * 100).rounded() / 100))
+            Text(String((loan.amortis * 100).rounded() / 100))
+            Text(String((loan.annuity[index] * 100).rounded() / 100))
+            Text(String((loan.end[index] * 100).rounded() / 100))
         }
     }
 }

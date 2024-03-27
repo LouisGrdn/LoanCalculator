@@ -9,35 +9,21 @@ import Foundation
 
 class AmortisLoan: Loan {
     
-    func getAnnuity(periode: Int) -> Float {
-        return getInterest(periode: periode) + getAmortissement()
-    }
-    
-    func getStartingCapital(periode: Int) -> Float {
-        var result = self.amount
-        if periode > 0 {
-            result = getEndingCapital(periode: periode - 1)
-        }
-        return result
-    }
-    
-    func getInterest(periode: Int) -> Float {
-        return getStartingCapital(periode: periode) * self.rate
-    }
-    
-    func getAmortissement() -> Float {
-        return self.amount / Float(self.time)
-    }
-    
-    func getEndingCapital(periode: Int) -> Float {
-        let calcul = getStartingCapital(periode: periode) - getAmortissement()
-        switch(true) {
-        case calcul < 0:
-            return calcul * -1
-        case calcul < 1:
-            return 0
-        default:
-            return calcul
+    override init(amount: Float, rate: Float, time: Int, periode: Loan.Periode) {
+        super.init(amount: amount, rate: rate, time: time, periode: periode)
+        self.amortis = self.amount / Float(self.time)
+        for i in 0..<self.time {
+            i == 0 ? start.append(self.amount) : start.append(end[i - 1])
+            interests.append(start[i] * self.rate)
+            end.append(start[i] - amortis)
+            annuity.append(interests[i] + amortis)
         }
     }
+    
+    var start: Array<Float> = []
+    var end: Array<Float> = []
+    var annuity: Array<Float> = []
+    var interests: Array<Float> = []
+    var amortis: Float = 0
+    
 }
