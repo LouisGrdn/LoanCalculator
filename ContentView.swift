@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var selectedPeriode: Loan.Periode = .mois
     
     var body: some View {
-        ConstantAnnuityForm(montant: $montant, taux: $taux, duree: $duree, selectedPeriode: $selectedPeriode)
+        FormView(montant: $montant, taux: $taux, duree: $duree, selectedPeriode: $selectedPeriode)
     }
 }
 
