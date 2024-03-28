@@ -12,11 +12,11 @@ struct AnnuityTotalRow: View {
     var body: some View {
         let sum = loan.sum()
         GridRow {
+            Text("Total")
             Text("")
-            Text("")
-            Text(String((sum[0] * 100).rounded() / 100))
-            Text(String((sum[1] * 100).rounded() / 100))
-            Text(String((sum[2] * 100).rounded() / 100))
+            Text(String(sum[0].rounded()))
+            Text(String(sum[1].rounded()))
+            Text(String(sum[2].rounded()))
             Text("")
         }
     }

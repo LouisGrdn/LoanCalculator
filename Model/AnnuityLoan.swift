@@ -28,7 +28,7 @@ class AnnuityLoan: Loan {
 
     func sum() -> Array<Float> {
         var interests: Float = 0
-        var annuity: Float = self.annuity * self.time
+        let annuity: Float = self.annuity * Float(self.time)
         var amortis: Float = 0
         for i in 0..<self.interests.count {
             interests += self.interests[i]

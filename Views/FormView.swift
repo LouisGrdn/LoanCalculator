@@ -67,12 +67,12 @@ struct FormView: View {
                 .pickerStyle(.palette)
                 .padding(.bottom, 15)
                 if selectedLoanType == LoanType.annuity {
-                    NavigationLink(destination: AnnuityLoanTab(rowsPerPage: duree, loan: AnnuityLoan(amount: montant, rate: taux, time: duree, periode: selectedPeriode))) {
+                    NavigationLink(destination: AnnuityLoanTab(loan: AnnuityLoan(amount: montant, rate: taux, time: duree, periode: selectedPeriode), rowsPerPage: duree)) {
                         Text("Valider")
                     }
                 }
                 else {
-                    NavigationLink(destination: AmortisLoanTab(rowsPerPage: duree, loan: AmortisLoan(amount: montant, rate: taux, time: duree, periode: selectedPeriode))) {
+                    NavigationLink(destination: AmortisLoanTab(loan: AmortisLoan(amount: montant, rate: taux, time: duree, periode: selectedPeriode), rowsPerPage: duree)) {
                         Text("Valider")
                     }
                 }

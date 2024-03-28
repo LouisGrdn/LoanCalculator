@@ -28,8 +28,10 @@ struct AmortisLoanTab: View {
                     AmortisRow(index: index, loan: loan)
                     Divider()
                 }
-                AmortisTotalRow(loan: loan)
-                Divider()
+                if currentPage == loan.time / rowsPerPage {
+                    AmortisTotalRow(loan: loan)
+                    Divider()
+                }
             }
         }
         .padding(.horizontal, 10)
@@ -40,5 +42,5 @@ struct AmortisLoanTab: View {
 }
 
 #Preview {
-    AmortisLoanTab(loan: (AmortisLoan(amount: 10000, rate: 5, time: 8, periode: AnnuityLoan.Periode.annee)))
+    AmortisLoanTab(loan: (AmortisLoan(amount: 10000, rate: 5, time: 8, periode: AnnuityLoan.Periode.annee)), rowsPerPage: 8)
 }

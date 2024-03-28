@@ -40,5 +40,5 @@ struct AnnuityLoanTab: View {
 }
 
 #Preview {
-    AnnuityLoanTab(loan: (AnnuityLoan(amount: 10000, rate: 5, time: 8, periode: AnnuityLoan.Periode.trimestre)))
+    AnnuityLoanTab(loan: (AnnuityLoan(amount: 10000, rate: 5, time: 8, periode: AnnuityLoan.Periode.trimestre)), rowsPerPage: 8)
 }
