@@ -28,6 +28,8 @@ struct AnnuityLoanTab: View {
                     AnnuityRow(index: index, loan: loan)
                     Divider()
                 }
+                AnnuityTotalRow(loan: loan)
+                Divider()
             }
         }
         .padding(.horizontal, 10)

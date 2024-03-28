@@ -28,6 +28,8 @@ struct AmortisLoanTab: View {
                     AmortisRow(index: index, loan: loan)
                     Divider()
                 }
+                AmortisTotalRow(loan: loan)
+                Divider()
             }
         }
         .padding(.horizontal, 10)
