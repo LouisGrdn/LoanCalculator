@@ -10,7 +10,7 @@ import Foundation
 
 struct AnnuityLoanTab: View {
     let loan: AnnuityLoan
-    let rowsPerPage = 8
+    let rowsPerPage: Int
     @State private var currentPage = 0
     var body: some View {
         ScrollView(.horizontal) {
@@ -30,6 +30,7 @@ struct AnnuityLoanTab: View {
                 }
             }
         }
+        .padding(.horizontal, 10)
         if rowsPerPage < loan.time {
             PaginationView(loan: loan, rowsPerPage: rowsPerPage, currentPage: $currentPage)
         }

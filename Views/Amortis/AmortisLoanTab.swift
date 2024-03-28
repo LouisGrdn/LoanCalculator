@@ -10,7 +10,7 @@ import Foundation
 
 struct AmortisLoanTab: View {
     let loan: AmortisLoan
-    let rowsPerPage = 8
+    let rowsPerPage: Int
     @State private var currentPage = 0
     var body: some View {
         ScrollView(.horizontal) {
