@@ -25,5 +25,16 @@ class AmortisLoan: Loan {
     var annuity: Array<Float> = []
     var interests: Array<Float> = []
     var amortis: Float = 0
+
+    func sum() -> Array<Float> {
+        var interests: Float = 0
+        var annuity: Float = 0
+        var amortis: Float = self.amortis * self.time
+        for i in 0..<self.interests.count {
+            interests += self.interests[i]
+            annuity += self.annuity[i]
+        }
+        return [interests, amortis, annuity]
+    }
     
 }
